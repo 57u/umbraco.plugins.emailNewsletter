@@ -1,0 +1,46 @@
+﻿<!-- 
+    Stuart Sillitoe 
+    2015 Pro:Direct
+    EmailNewsletter Angular View
+-->
+<div class="ngViewWrap">
+
+    <div ng-controller="EmailNewsletter.EmailNewsletterController">
+        <div class="umb-dialog-body form-horizontal">
+            <div class="umb-pane">
+
+                <h4>Confirm &amp; Send</h4>
+                <div id="emailNewsletter_DefaultContent">
+                    <p>After making sure all your content is perfect and looks great in a browser, simply press the send button below.</p>
+                    <p>You can also tick the checkbox to send yourself a test first.</p>
+
+                    <hr/>
+                    <label for="testSendEmailSwitch"><strong>Send a test email?</strong></label>
+                    <input type="checkbox" id="testSendEmail_Switch" name="testSendEmail_Switch" value="true" />
+                    <input type="email" id="testSendEmail_Input" name="testSendEmail_Input" placeholder="Enter email address" disabled="disabled" />
+                    <span id="emailValidText" class=""></span>
+                    <hr/>
+
+                    <p>
+                        <button ng-click="sendEmailNewsletter()"
+                                type="submit" 
+                                class="btn btn-lg btn-warning" 
+                                name="sendEmailNewsletter" 
+                                id="sendEmailNewsletter"                
+                        >Send Newsletter</button>
+                    </p>
+
+                </div>
+                
+                <div ng-bind-html="newsletterEmailStatus" id="newsletterEmailStatus"></div>
+
+            </div>
+        </div>
+        <div class="umb-dialog-footer btn-toolbar umb-btn-toolbar">
+            <a class="btn btn-link" ng-click="nav.hideDialog()">
+                <localize key="general_cancel">Cancel</localize>
+            </a>
+        </div>
+    </div>
+
+</div>

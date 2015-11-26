@@ -1,0 +1,8 @@
+﻿{
+	css: [
+		'~/App_Plugins/EmailNewsletter/BackOffice/EmailNewsletter.css'
+	],
+	javascript: [
+		'~/App_Plugins/EmailNewsletter/BackOffice/EmailNewsletter.controller.js'
+	]
+}
