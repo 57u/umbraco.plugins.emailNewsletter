@@ -5,23 +5,22 @@ A handful of files will be required, and also some particular directory structur
 
 Here's the structure for my Email Newsletter Plug-in, we'll then go through how to create each file and it's contents.
 
-Directory Structure
-
-
+# Directory Structure
 
 So, as you can see we have:
 
-package.manifest
-EmailNewsletter.css
-EmailNewsletter.controller.js (our Angular controller)
-SendEmailController.cs (our c# controller)
-/actions/EmailNewsletter.html (our Angular view)
+- package.manifest
+- EmailNewsletter.css
+- EmailNewsletter.controller.js (our Angular controller)
+- SendEmailController.cs (our c# controller)
+- /actions/EmailNewsletter.html (our Angular view)
+
 The actions directory is required, and is part of the naming convention we need to follow for our files to be found.
 
-Lets look at each file:
+# Lets look at each file:
 
 Inside the package.manifest we have a simple object referencing our css and js files:
-
+```
 {
  css: [
  '~/App_Plugins/EmailNewsletter/BackOffice/EmailNewsletter.css'
@@ -30,10 +29,12 @@ Inside the package.manifest we have a simple object referencing our css and js f
  '~/App_Plugins/EmailNewsletter/BackOffice/EmailNewsletter.controller.js'
  ] 
 }
+```
 The css file just contains our css, we don't need to show that here.
 
 In the JavaScript file, is our Angular Controller, this contains the functions and logic i wrote to provide some feedback to the user.
 
+```
 /**
     Stuart Sillitoe
     2015
@@ -46,8 +47,7 @@ In the JavaScript file, is our Angular Controller, this contains the functions a
 
 */
 
-;
-angular.module('umbraco').controller("EmailNewsletter.EmailNewsletterController", contentEmailNewsletterController);
+;angular.module('umbraco').controller("EmailNewsletter.EmailNewsletterController", contentEmailNewsletterController);
 
 function contentEmailNewsletterController($scope, $routeParams, $http, contentResource, notificationsService)
 {
@@ -180,8 +180,11 @@ function contentEmailNewsletterController($scope, $routeParams, $http, contentRe
 
 }
 ;
+```
+
 The Angular View, or action, is in /actions/EmailNewsletter.html and looks like this:
 
+```
 <div class="ngViewWrap">
 
     <div ng-controller="EmailNewsletter.EmailNewsletterController">
@@ -216,8 +219,11 @@ The Angular View, or action, is in /actions/EmailNewsletter.html and looks like 
     </div>
 
 </div>
+```
+
 The C# Controller does a few things: it receives our newsletter ID, fetches the content, validates a few bits, sends the email, and returns some JSON to our Angular controller...
 
+```
 /**
     Stuart Sillitoe
     2015
@@ -338,3 +344,4 @@ namespace cfBlog3.App_Plugins.EmailNewsletter
         }
     }
 }
+```
